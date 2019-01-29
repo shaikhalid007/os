@@ -9,7 +9,6 @@ class Process:
     def process(self, T):
         if self.execute < self.burst:
             self.execute = self.execute+1
-            T = T+1
             return True
         elif self.execute == self.burst:
             self.close = T
@@ -25,6 +24,7 @@ def simulate(POOL):
     POOL = sort(POOL)
     for proc in POOL:
         while(proc.process(time)):
+            time = time+1
 
 
 if __name__ == '__main__':
