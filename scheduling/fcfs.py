@@ -28,7 +28,7 @@ def simulate(POOL):
 
 
 if __name__ == '__main__':
-    time = 0;
+    time = 0
     t_proc = int(input("Total number of process : "))
     pool = list[]
     for proc_id in range(t_proc):
