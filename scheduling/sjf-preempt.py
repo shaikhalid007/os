@@ -23,7 +23,7 @@ def read():
     n = int(input("Enter total no. of processes: "))
     print("SYNTAX: <AT> <BT>")
     for process_id in range(n):
-        print(n, ":", end=" ")
+        print(process_id, ":", end=" ")
         at, bt = map(int, input().split(" "))
         processes.add(Process(process_id, at, bt))
     return processes
@@ -33,8 +33,11 @@ def simulate(processes):
     time = 0
     completed = list()
     while processes:
-        next_process = reduce(lambda x, y: x if x.burst - x.execute < y.burst - y.execute else y, processes)
-        if next_process.process(time):
+        next_process = reduce(
+            lambda x, y: x if (x.burst - x.execute) < (y.burst - y.execute) and x.arrival <= time else y, processes)
+        if next_process.arrival > time:
+            time += 1
+        elif next_process.process(time):
             time += 1
         else:
             processes.remove(next_process)
