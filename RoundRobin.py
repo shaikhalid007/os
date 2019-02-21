@@ -20,7 +20,7 @@ def rr(atbt, tq):
     l = len(atbt)
     # v = []  visited array
     q = [atbt[0][0]]
-    v = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  # visiting first element in sorted array
+    v = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  #create a visited array equal to number of elemnts visiting first element in sorted array
     gc = []
     totalbt = 0
     i = 0
